@@ -152,7 +152,6 @@ class SpfFlattener
     public function getAddresses(): array
     {
         $ips = $this->flattener->flattenMechanisms();
-        // d($this->domain, $ips);
         return $ips;
     }
 

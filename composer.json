@@ -6,8 +6,6 @@
     }
   },
   "require": {
-    "cloudflare/sdk": "^1.4",
-    "kint-php/kint": "^6.0",
     "mlocati/spf-lib": "^3.1"
   }
 }
