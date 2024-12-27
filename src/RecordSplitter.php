@@ -69,6 +69,10 @@ class RecordSplitter
 
     protected function chunk(array $ips, int $characterLimit = 2048): array
     {
+        if (empty($ips)) {
+            return [];
+        }
+
         $chunks = [];
         $chunk = [$this->record::PREFIX];
         $length = strlen($this->record::PREFIX) + 1;

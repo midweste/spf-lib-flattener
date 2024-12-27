@@ -4,13 +4,12 @@ namespace SpfLibFlattener;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$domain = 'thecleanbedroom.com';
+$domain = 'example.com';
 $spf = new SpfFlattener($domain);
 
 $flatArray = $spf->toFlatArray();
 $flatString = $spf->toFlatString();
 $flatRecord = $spf->toFlatRecord();
-
 d($flatArray, $flatString, $flatRecord);
 
 $splitter = RecordSplitter::createFromTxt($flatString);
