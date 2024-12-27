@@ -1,0 +1,36 @@
+name: spfflatten
+recipe: lamp
+config:
+  php: 8.1
+  via: apache
+  webroot: web
+  database: mysql:8.0.34
+  xdebug: true
+  composer_version: 2.7.6
+  config:
+    php: .lando.php.ini
+tooling:
+  xdebug-on:
+    service: appserver
+    description: Enable xdebug step debugging.
+    cmd:
+      - rm -f /usr/local/etc/php/conf.d/zzzz-lando-xdebug.ini
+      - echo xdebug.mode = debug > /usr/local/etc/php/conf.d/zzzz-lando-xdebug.ini
+      - pkill -o -USR2 php-fpm || /etc/init.d/apache2 reload
+    user: root
+  xdebug-profile:
+    service: appserver
+    description: Enable xdebug profiling.
+    cmd:
+      - rm -f /usr/local/etc/php/conf.d/zzzz-lando-xdebug.ini
+      - echo xdebug.mode = profile > /usr/local/etc/php/conf.d/zzzz-lando-xdebug.ini
+      - pkill -o -USR2 php-fpm || /etc/init.d/apache2 reload
+    user: root
+  xdebug-off:
+    service: appserver
+    description: Disable xdebug.
+    cmd:
+      - rm -f /usr/local/etc/php/conf.d/zzzz-lando-xdebug.ini
+      - echo xdebug.mode = off > /usr/local/etc/php/conf.d/zzzz-lando-xdebug.ini
+      - pkill -o -USR2 php-fpm || /etc/init.d/apache2 reload
+    user: root

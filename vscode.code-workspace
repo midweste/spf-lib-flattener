@@ -1,0 +1,189 @@
+{
+  "extensions": {
+    "recommendations": [
+      "valeryanm.vscode-phpsab",
+      "xdebug.php-debug",
+      "esbenp.prettier-vscode",
+      "bmewburn.vscode-intelephense-client",
+      "claudiosanches.woocommerce",
+      "johnbillion.vscode-wordpress-hooks",
+      "redhat.vscode-xml",
+      "GitHub.copilot",
+      "DanielSanMedium.dscodegpt"
+    ]
+  },
+  "folders": [
+    {
+      "name": "SpfLibFlattener",
+      "path": "."
+    }
+  ],
+  "launch": {
+    "compounds": [],
+    "configurations": [
+      {
+        "log": false,
+        "name": "Lando",
+        "pathMappings": {
+          "/app/": "${workspaceRoot}/"
+        },
+        "port": 9003,
+        "request": "launch",
+        "type": "php",
+        "xdebugSettings": {
+          "max_children": 300,
+          "max_data": 512,
+          "max_depth": 3
+        }
+      },
+      {
+        "name": "Listen for XDebug",
+        "port": 9003,
+        "request": "launch",
+        "type": "php"
+      },
+      {
+        "cwd": "${fileDirname}",
+        "name": "Launch currently open script",
+        "port": 9003,
+        "program": "${file}",
+        "request": "launch",
+        "type": "php"
+      }
+    ]
+  },
+  "settings": {
+    "[php]": {
+      "DISABLEDeditor.defaultFormatter": "valeryanm.vscode-phpsab",
+      "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    },
+    "[xml]": {
+      "editor.defaultFormatter": "redhat.vscode-xml"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.detectIndentation": false,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "files.trimTrailingWhitespace": true,
+    "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/node_modules/*/**": true,
+      "**/.hg/store/**": true,
+      "**/vendor/*/**": true
+    },
+    "git.ignoreLimitWarning": true,
+    "intelephense.completion.maxItems": 500,
+    "intelephense.environment.documentRoot": "web/index.php",
+    "intelephense.environment.phpVersion": "8.1.18",
+    "intelephense.files.exclude": [
+      "**/.git/**",
+      "**/.svn/**",
+      "**/.hg/**",
+      "**/CVS/**",
+      "**/.DS_Store/**",
+      "**/node_modules/**",
+      "**/bower_components/**",
+      "**/vendor/**/{Tests,tests}/**",
+      "**/.history/**",
+      "**/vendor/**/vendor/**",
+      "private/**"
+    ],
+    "intelephense.stubs": [
+      "apache",
+      "bcmath",
+      "bz2",
+      "calendar",
+      "com_dotnet",
+      "Core",
+      "ctype",
+      "curl",
+      "date",
+      "dba",
+      "dom",
+      "enchant",
+      "exif",
+      "FFI",
+      "fileinfo",
+      "filter",
+      "fpm",
+      "ftp",
+      "gd",
+      "gettext",
+      "gmp",
+      "hash",
+      "iconv",
+      "imap",
+      "intl",
+      "json",
+      "ldap",
+      "libxml",
+      "mbstring",
+      "memcached",
+      "meta",
+      "mysqli",
+      "oci8",
+      "odbc",
+      "openssl",
+      "pcntl",
+      "pcre",
+      "PDO",
+      "pdo_ibm",
+      "pdo_mysql",
+      "pdo_pgsql",
+      "pdo_sqlite",
+      "pgsql",
+      "Phar",
+      "posix",
+      "pspell",
+      "readline",
+      "Reflection",
+      "session",
+      "shmop",
+      "SimpleXML",
+      "snmp",
+      "soap",
+      "sockets",
+      "sodium",
+      "SPL",
+      "sqlite3",
+      "standard",
+      "superglobals",
+      "sysvmsg",
+      "sysvsem",
+      "sysvshm",
+      "tidy",
+      "tokenizer",
+      "xml",
+      "xmlreader",
+      "xmlrpc",
+      "xmlwriter",
+      "xsl",
+      "Zend OPcache",
+      "zip",
+      "zlib",
+      "imagick"
+    ],
+    "php.debug.executablePath": "/usr/local/bin/php",
+    "php.problems.excludeGitIgnore": true,
+    "phpsab.allowedAutoRulesets": [
+      ".phpcs.xml",
+      ".phpcs.xml.dist",
+      "phpcs.xml",
+      "phpcs.xml.dist",
+      "phpcs.ruleset.xml",
+      "ruleset.xml"
+    ],
+    "phpsab.autoRulesetSearch": true,
+    "phpsab.debug": true,
+    "phpsab.executablePathCBF": ".lando-phpcbf",
+    "phpsab.executablePathCS": ".lando-phpcs",
+    "phpsab.fixerEnable": true,
+    "phpsab.snifferEnable": true,
+    "phpsab.snifferShowSources": true,
+    "phpsab.snifferTypeDelay": 1000,
+    "phpsab.standard": "PSR2",
+    "trailing-spaces.trimOnSave": true,
+    "intelephense.environment.shortOpenTag": false
+  }
+}
