@@ -54,7 +54,18 @@ $flatRecord = $spf->toFlatRecord();
 ### Flattening an spf record from an existing string record
 
 ```php
-// TODO
+namespace SpfLibFlattener;
+
+require __DIR__ . '/../vendor/autoload.php';
+
+$domain = 'example.com';
+
+// Flatten a record by passing the record as a string
+$record = 'v=spf1 include:example.com include:google.com -all';
+$spf = SpfFlattener::createFromText($domain, $record);
+$flatArray = $spf->toFlatArray();
+$flatString = $spf->toFlatString();
+$flatRecord = $spf->toFlatRecord();
 ```
 
 ### Splitting an spf record from an existing string record
@@ -77,4 +88,4 @@ foreach ($split as $name => $r) {
 
 ## Do you want to really say thank you?
 
-You can offer the original author the did all the heavy lifting (mlocati) a [monthly coffee](https://github.com/sponsors/mlocati) or a [one-time coffee](https://paypal.me/mlocati) :wink:
+You can offer the original author that did all the heavy lifting (mlocati) a [monthly coffee](https://github.com/sponsors/mlocati) or a [one-time coffee](https://paypal.me/mlocati) :wink:

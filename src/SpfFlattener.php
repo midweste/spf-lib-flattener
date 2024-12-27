@@ -49,56 +49,22 @@ class SpfFlattener
      */
     public static function createFromDomain(string $domain): self
     {
-        $spfRecord = self::fetchSpfRecord($domain);
-        $instance = new self($spfRecord);
+        $spf = self::fetchSpfRecord($domain);
+        if (empty($spf)) {
+            throw new \RuntimeException(sprintf('No SPF record found for domain: %s', $domain));
+        }
+        $instance = new self($domain, $spf);
         return $instance;
     }
 
-    public function getRecord(): Record
-    {
-        return $this->record;
-    }
-
     /**
-     * Get the SPF record.
-     *
-     * @return string The SPF record.
+     * Static method to create an Spf instance from a domain name.
      */
-    public function getSpf(): string
+    public static function createFromText(string $domain, string $spf): self
     {
-        return $this->spf;
+        return new self($domain, $spf);
     }
 
-    public function validateSpf(string $spfRecord): void
-    {
-        try {
-            $record = $this->decoder->getRecordFromTXT($spfRecord);
-            $issues = (new \SPFLib\SemanticValidator())->validate($record);
-            if (!empty($issues)) {
-                $errors = [];
-                foreach ($issues as $issue) {
-                    $errors[] = (string) $issue;
-                }
-                throw new \RuntimeException(sprintf('Invalid SPF record: %s', implode(', ', $errors)));
-            }
-        } catch (\Throwable $e) {
-            throw new \RuntimeException($e->getMessage());
-        }
-    }
-
-    /**
-     * Set the SPF record.
-     *
-     * @param string $record The SPF record.
-     * @return self
-     */
-    public function setSpfRecord(string $record): self
-    {
-        $this->validateSpf($record);
-        $this->spf = $record;
-        $this->record = $this->decoder->getRecordFromTXT($record);
-        return $this;
-    }
 
     /**
      * Fetch the SPF record for a domain.
@@ -147,6 +113,52 @@ class SpfFlattener
 
         $cache[$domain] = $results[0] ?? '';
         return $cache[$domain];
+    }
+
+    public function getRecord(): Record
+    {
+        return $this->record;
+    }
+
+    /**
+     * Get the SPF record.
+     *
+     * @return string The SPF record.
+     */
+    public function getSpf(): string
+    {
+        return $this->spf;
+    }
+
+    public function validateSpf(string $spfRecord): void
+    {
+        try {
+            $record = $this->decoder->getRecordFromTXT($spfRecord);
+            $issues = (new \SPFLib\SemanticValidator())->validate($record);
+            if (!empty($issues)) {
+                $errors = [];
+                foreach ($issues as $issue) {
+                    $errors[] = (string) $issue;
+                }
+                throw new \RuntimeException(sprintf('Invalid SPF record: %s', implode(', ', $errors)));
+            }
+        } catch (\Throwable $e) {
+            throw new \RuntimeException($e->getMessage());
+        }
+    }
+
+    /**
+     * Set the SPF record.
+     *
+     * @param string $record The SPF record.
+     * @return self
+     */
+    public function setSpfRecord(string $record): self
+    {
+        $this->validateSpf($record);
+        $this->spf = $record;
+        $this->record = $this->decoder->getRecordFromTXT($record);
+        return $this;
     }
 
     public function getAddresses(): array
