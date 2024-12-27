@@ -1,5 +1,22 @@
 {
   "name": "midweste/spf-lib-flattener",
+  "description": "A library to flatten SPF records",
+  "type": "library",
+  "keywords": [
+    "spf",
+    "flattener",
+    "dns"
+  ],
+  "homepage": "https://github.com/midweste/spf-lib-flattener",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "midweste",
+      "email": "midweste@devbunker.com",
+      "homepage": "https://github.com/midweste",
+      "role": "Developer"
+    }
+  ],
   "autoload": {
     "psr-4": {
       "SpfLibFlattener\\": "src/"
