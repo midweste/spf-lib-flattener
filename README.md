@@ -77,4 +77,4 @@ foreach ($split as $name => $r) {
 
 ## Do you want to really say thank you?
 
-You can offer nlocati a [monthly coffee](https://github.com/sponsors/mlocati) or a [one-time coffee](https://paypal.me/mlocati) :wink:
+You can offer the original author the did all the heavy lifting (mlocati) a [monthly coffee](https://github.com/sponsors/mlocati) or a [one-time coffee](https://paypal.me/mlocati) :wink:
