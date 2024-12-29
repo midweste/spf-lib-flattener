@@ -33,10 +33,10 @@ class SpfFlattener
 
         if (!empty($spfRecord)) {
             $this->setSpfRecord($spfRecord);
-            return;
+        } else {
+            $domainSpf = $this->decoder->getRecordFromDomain($domain);
+            $this->setSpfRecord((string) $domainSpf);
         }
-        $domainSpf = $this->decoder->getRecordFromDomain($domain);
-        $this->setSpfRecord((string) $domainSpf);
 
         $this->flattener = new RecordFlattener($domain, $this->record);
     }

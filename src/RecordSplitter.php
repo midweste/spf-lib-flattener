@@ -109,7 +109,7 @@ class RecordSplitter
         $primary = [$parts['version']];
         $primary = array_merge($primary, $parts['mechanisms']);
         foreach ($chunk as $index => $ips) {
-            $primary[] = sprintf('include:%s', str_replace('#', $index + 1, $pattern));
+            $primary[] = sprintf('include:%s', str_replace('#', (string) ($index + 1), $pattern));
         }
         $primary = array_merge($primary, $parts['all']);
         $records['primary'] = implode(' ', $primary);
@@ -118,7 +118,7 @@ class RecordSplitter
         foreach ($chunk as $index => $ips) {
             $spf = [];
             $spf = array_merge($spf, $ips);
-            $records[str_replace('#', $index + 1, $pattern)] = implode(' ', $spf);
+            $records[str_replace('#', (string) ($index + 1), $pattern)] = implode(' ', $spf);
         }
 
         // validate all
