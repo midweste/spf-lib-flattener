@@ -99,16 +99,16 @@
         },
         {
             "name": "mlocati/ip-lib",
-            "version": "1.18.1",
+            "version": "1.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mlocati/ip-lib.git",
-                "reference": "08bb43b4949069c543ebdf099a6b2c322d0172ab"
+                "reference": "fd45fc3bf08ed6c7e665e2e70562082ac954afd4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mlocati/ip-lib/zipball/08bb43b4949069c543ebdf099a6b2c322d0172ab",
-                "reference": "08bb43b4949069c543ebdf099a6b2c322d0172ab",
+                "url": "https://api.github.com/repos/mlocati/ip-lib/zipball/fd45fc3bf08ed6c7e665e2e70562082ac954afd4",
+                "reference": "fd45fc3bf08ed6c7e665e2e70562082ac954afd4",
                 "shasum": ""
             },
             "require": {
@@ -154,7 +154,7 @@
             ],
             "support": {
                 "issues": "https://github.com/mlocati/ip-lib/issues",
-                "source": "https://github.com/mlocati/ip-lib/tree/1.18.1"
+                "source": "https://github.com/mlocati/ip-lib/tree/1.20.0"
             },
             "funding": [
                 {
@@ -166,20 +166,20 @@
                     "type": "other"
                 }
             ],
-            "time": "2024-10-29T15:44:19+00:00"
+            "time": "2025-02-04T17:30:58+00:00"
         },
         {
             "name": "mlocati/spf-lib",
-            "version": "3.1.2",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mlocati/spf-lib.git",
-                "reference": "8a4e52bf1c9d60ba9773a590ddc416f145c4fc57"
+                "reference": "73129185330adcf783c1cb8e43af6ebb1ef9c66b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mlocati/spf-lib/zipball/8a4e52bf1c9d60ba9773a590ddc416f145c4fc57",
-                "reference": "8a4e52bf1c9d60ba9773a590ddc416f145c4fc57",
+                "url": "https://api.github.com/repos/mlocati/spf-lib/zipball/73129185330adcf783c1cb8e43af6ebb1ef9c66b",
+                "reference": "73129185330adcf783c1cb8e43af6ebb1ef9c66b",
                 "shasum": ""
             },
             "require": {
@@ -188,7 +188,6 @@
                 "php": ">=7.1.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.16",
                 "phpunit/phpunit": "^7.5 || ^8.5 || ^9.4",
                 "symfony/yaml": "^4.4 || ^5.1"
             },
@@ -235,7 +234,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2022-09-09T09:05:31+00:00"
+            "time": "2025-02-27T16:24:07+00:00"
         }
     ],
     "packages-dev": [],

@@ -34,7 +34,24 @@ class SpfFlattener
         if (!empty($spfRecord)) {
             $this->setSpfRecord($spfRecord);
         } else {
-            $domainSpf = $this->decoder->getRecordFromDomain($domain);
+            $attempts = 0;
+            $maxAttempts = 3;
+            $domainSpf = null;
+            while ($attempts < $maxAttempts) {
+                try {
+                    $domainSpf = $this->decoder->getRecordFromDomain($domain);
+                    break;
+                } catch (\Throwable $e) {
+                    $attempts++;
+                    if ($attempts >= $maxAttempts) {
+                        throw new \RuntimeException(sprintf('Failed to fetch SPF record for domain %s after %d attempts: %s', $domain, $maxAttempts, $e->getMessage()));
+                    }
+                    sleep(1);
+                }
+            }
+            if (empty($domainSpf)) {
+                throw new \RuntimeException(sprintf('Could not get the DNS record for domain: %s', $domain));
+            }
             $this->setSpfRecord((string) $domainSpf);
         }
 
